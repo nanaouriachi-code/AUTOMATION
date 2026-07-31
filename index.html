@@ -150,20 +150,6 @@
       color: var(--accent-blue);
     }
 
-    .nav-cta {
-      background: linear-gradient(135deg, var(--accent-blue), var(--royal-blue));
-      color: #fff !important;
-      padding: 10px 22px;
-      border-radius: 6px;
-      font-weight: bold !important;
-      transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-    }
-
-    .nav-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 20px rgba(59, 130, 246, 0.4);
-    }
-
     /* --- HERO SECTION --- */
     .hero {
       position: relative;
@@ -284,7 +270,6 @@
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
       position: relative;
       overflow: hidden;
-      /* Animation infinie : il vient, reste visible, puis repart */
       animation: slideInOut 5s ease-in-out infinite;
       display: flex;
       flex-direction: column;
@@ -767,13 +752,17 @@
       box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
     }
 
-    /* --- FOOTER --- */
+    /* --- FOOTER (AVEC L'ANIMATION EN BAS) --- */
     footer {
       background-color: #03050a;
       border-top: 1px solid var(--border-color);
-      padding: 50px 20px 30px 20px;
+      padding: 60px 20px 40px 20px;
       color: var(--text-muted);
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
     }
 
     footer p {
@@ -785,18 +774,44 @@
       text-decoration: none;
     }
 
-    /* --- RESPONSIVE MOBILE AMÉLIORÉ --- */
+    /* --- RESPONSIVE MOBILE AMÉLIORÉ (MENU SUR UNE SEULE LIGNE HORIZONTALE SANS RETOUR À LA LIGNE) --- */
     @media screen and (max-width: 950px) {
       header {
-        padding: 15px 20px;
-        flex-direction: column;
-        gap: 15px;
+        padding: 12px 15px;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
       }
+
+      .logo {
+        font-size: 1.2rem;
+      }
+
+      .logo-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+      }
+
       .nav-menu {
-        flex-wrap: wrap;
-        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         gap: 15px;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
       }
+
+      .nav-menu::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+      }
+
+      .nav-menu a {
+        font-size: 0.85rem;
+      }
+
       .offers-grid,
       .advisor-grid,
       .examples-grid {
@@ -838,9 +853,6 @@
     <ul class="nav-menu">
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#offres">Nos Offres</a></li>
-      <li><a href="#conseiller">Conseiller Entreprise</a></li>
-      <li><a href="#exemples">Exemples par Métier</a></li>
-      <li><a href="#contact" class="nav-cta">Contactez-nous</a></li>
     </ul>
   </header>
 
@@ -854,14 +866,6 @@
       <div class="hero-buttons">
         <a href="#offres" class="btn-primary">Découvrir nos offres</a>
         <a href="#contact" class="btn-secondary">Prendre contact</a>
-      </div>
-
-      <!-- ANIMATION "VIENT ET REPART" : NASSIM INGÉNIEUR EN IA & INFORMATIQUE -->
-      <div class="hero-expert-animation">
-        <div class="expert-badge-top">⚡ Conception & Innovation</div>
-        <div class="expert-name"><span>Nassim</span></div>
-        <div class="expert-title">Ingénieur en Intelligence Artificielle (Automatisation IA) & en Informatique</div>
-        <div class="expert-desc">Architecte de solutions logicielles avancées, IA générative et flux intelligents pour propulser les entreprises.</div>
       </div>
     </div>
   </section>
@@ -1149,8 +1153,16 @@
     </div>
   </section>
 
-  <!-- ==================== FOOTER ==================== -->
+  <!-- ==================== FOOTER (AVEC L'ANIMATION EN BAS) ==================== -->
   <footer>
+    <!-- ANIMATION "VIENT ET REPART" DÉPLACÉE TOUT EN BAS -->
+    <div class="hero-expert-animation">
+      <div class="expert-badge-top">⚡ Conception & Innovation</div>
+      <div class="expert-name"><span>Nassim</span></div>
+      <div class="expert-title">Ingénieur en Intelligence Artificielle (Automatisation IA) & en Informatique</div>
+      <div class="expert-desc">Architecte de solutions logicielles avancées, IA générative et flux intelligents pour propulser les entreprises.</div>
+    </div>
+
     <p>&copy; 2026 Nexflow. Tous droits réservés. | Solutions professionnelles d'automatisation et de gestion de données.</p>
   </footer>
 
