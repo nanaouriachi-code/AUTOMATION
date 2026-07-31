@@ -8,15 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    /* --- CSS POUR MASQUER LES MENTIONS LOVABLE --- */
-    [class*="lovable"], [id*="lovable"], .edited-by-lovable, div[id^="lovable"] {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-    }
-
-    /* --- DESIGN TECH, SOBRE ET BLEU/VIOLET --- */
     :root {
       --bg-color: #05070d;
       --bg-secondary: #0b0f1a;
@@ -50,7 +41,6 @@
       font-family: 'Space Grotesk', sans-serif;
     }
 
-    /* --- ANIMATIONS --- */
     @keyframes rotateBorder {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
@@ -61,27 +51,13 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Animation "Il vient et il repart" (Slide in/out fluide avec effet de zoom et fondu) */
     @keyframes slideInOut {
-      0% {
-        opacity: 0;
-        transform: translateX(-100px) scale(0.9);
-      }
-      15% {
-        opacity: 1;
-        transform: translateX(0) scale(1);
-      }
-      85% {
-        opacity: 1;
-        transform: translateX(0) scale(1);
-      }
-      100% {
-        opacity: 0;
-        transform: translateX(100px) scale(0.9);
-      }
+      0% { opacity: 0; transform: translateX(-100px) scale(0.9); }
+      15% { opacity: 1; transform: translateX(0) scale(1); }
+      85% { opacity: 1; transform: translateX(0) scale(1); }
+      100% { opacity: 0; transform: translateX(100px) scale(0.9); }
     }
 
-    /* Nouvelles animations pour l'arrière-plan du premier écran */
     @keyframes floatOrb1 {
       0%, 100% { transform: translate(0, 0) scale(1); }
       50% { transform: translate(60px, -50px) scale(1.2); }
@@ -97,18 +73,12 @@
       100% { background-position: 50px 50px; }
     }
 
-    /* Animation de balayage lumineux discret en arrière-plan */
     @keyframes lightBeam {
       0% { transform: translateY(-100%) rotate(45deg); opacity: 0; }
       50% { opacity: 0.15; }
       100% { transform: translateY(200%) rotate(45deg); opacity: 0; }
     }
 
-    .animate-fade {
-      animation: fadeIn 0.8s ease forwards;
-    }
-
-    /* --- NAVIGATION --- */
     header {
       display: flex;
       justify-content: space-between;
@@ -173,7 +143,6 @@
       color: var(--accent-blue);
     }
 
-    /* --- HERO SECTION --- */
     .hero {
       position: relative;
       padding: 110px 20px 100px 20px;
@@ -182,7 +151,6 @@
       overflow: hidden;
     }
 
-    /* Effet d'arrière-plan animé amélioré et subtil */
     .hero-bg-effects {
       position: absolute;
       inset: 0;
@@ -191,7 +159,6 @@
       overflow: hidden;
     }
 
-    /* Grille de fond subtile en mouvement */
     .hero-bg-effects::before {
       content: "";
       position: absolute;
@@ -203,7 +170,6 @@
       animation: gridMove 25s linear infinite;
     }
 
-    /* Faisceau lumineux diagonal glissant */
     .hero-bg-effects::after {
       content: "";
       position: absolute;
@@ -215,7 +181,6 @@
       animation: lightBeam 8s ease-in-out infinite;
     }
 
-    /* Orbe lumineux bleu mouvant 1 */
     .hero-orb-1 {
       position: absolute;
       width: 500px;
@@ -228,7 +193,6 @@
       animation: floatOrb1 9s ease-in-out infinite;
     }
 
-    /* Orbe lumineux violet/cyan mouvant 2 */
     .hero-orb-2 {
       position: absolute;
       width: 450px;
@@ -330,7 +294,6 @@
       color: var(--accent-blue);
     }
 
-    /* --- SECTION STATISTIQUES --- */
     .stats-section {
       padding: 60px 20px;
       background-color: var(--bg-secondary);
@@ -359,8 +322,7 @@
       font-size: 0.95rem;
     }
 
-    /* --- SECTION OFFRES --- */
-    .offers-section {
+    .offers-section, .advisor-section, .examples-section {
       max-width: 1250px;
       margin: 100px auto;
       padding: 0 20px;
@@ -389,14 +351,17 @@
       margin: 0 auto;
     }
 
-    .offers-grid {
+    .offers-grid, .advisor-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 40px;
     }
 
-    /* BORDURE ANIMÉE BLEUE / TECH */
-    .offer-card {
+    .advisor-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .offer-card, .advisor-card {
       position: relative;
       border-radius: 18px;
       background: rgba(255, 255, 255, 0.01);
@@ -409,11 +374,11 @@
       transition: transform 0.3s ease;
     }
 
-    .offer-card:hover {
+    .offer-card:hover, .advisor-card:hover {
       transform: translateY(-5px);
     }
 
-    .offer-card::before {
+    .offer-card::before, .advisor-card::before {
       content: "";
       position: absolute;
       width: 180%;
@@ -425,32 +390,11 @@
       left: -40%;
     }
 
-    .offer-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: inherit;
-      filter: blur(20px);
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .offer-card:hover::after {
-      opacity: 0.6;
-    }
-
-    .offer-card.featured::before {
-      background: conic-gradient(from 0deg, transparent 50%, var(--accent-cyan) 75%, var(--accent-blue) 100%);
-      animation-duration: 3s;
-    }
-
     .card-inner {
       background-color: var(--card-bg);
       border-radius: 15px;
       padding: 40px;
       height: 100%;
-      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -526,75 +470,6 @@
       color: var(--text-muted);
     }
 
-    .card-footer-info strong {
-      color: var(--accent-blue);
-    }
-
-    /* --- SECTION CONSEILLER POUR ENTREPRISE --- */
-    .advisor-section {
-      max-width: 1250px;
-      margin: 100px auto;
-      padding: 0 20px;
-    }
-
-    .advisor-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-      margin-top: 50px;
-    }
-
-    .advisor-card {
-      position: relative;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.01);
-      overflow: hidden;
-      padding: 3px;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s ease;
-    }
-
-    .advisor-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .advisor-card::before {
-      content: "";
-      position: absolute;
-      width: 180%;
-      height: 180%;
-      background: conic-gradient(from 0deg, transparent 70%, var(--accent-blue) 85%, var(--royal-purple) 100%);
-      animation: rotateBorder 4s linear infinite;
-      z-index: -2;
-      top: -40%;
-      left: -40%;
-    }
-
-    .advisor-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: inherit;
-      filter: blur(20px);
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .advisor-card:hover::after {
-      opacity: 0.6;
-    }
-
-    /* --- SECTION EXEMPLES PAR MÉTIER --- */
-    .examples-section {
-      max-width: 1250px;
-      margin: 100px auto;
-      padding: 0 20px;
-    }
-
     .examples-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -647,9 +522,6 @@
       font-size: 1.4rem;
       color: #fff;
       margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
 
     .example-content p {
@@ -669,11 +541,6 @@
       color: #e2e8f0;
     }
 
-    .example-benefit strong {
-      color: var(--accent-cyan);
-    }
-
-    /* --- SECTION CONTACT DIRECT --- */
     .contact-section {
       max-width: 900px;
       margin: 100px auto;
@@ -694,10 +561,6 @@
       font-weight: 800;
       color: #fff;
       margin-bottom: 15px;
-    }
-
-    .contact-box h2 span {
-      color: var(--accent-blue);
     }
 
     .contact-box > p {
@@ -732,25 +595,12 @@
       box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
     }
 
-    .whatsapp-btn:hover {
-      transform: translateY(-3px);
-      background: #22bf5b;
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
-    }
-
     .email-btn {
       background: linear-gradient(135deg, var(--accent-blue), var(--royal-blue));
       color: #fff;
       box-shadow: 0 5px 20px rgba(59, 130, 246, 0.3);
     }
 
-    .email-btn:hover {
-      transform: translateY(-3px);
-      opacity: 0.9;
-      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
-    }
-
-    /* --- FOOTER (AVEC LE CARRÉ PERSONNEL EN BAS) --- */
     footer {
       background-color: #03050a;
       border-top: 1px solid var(--border-color);
@@ -763,16 +613,6 @@
       gap: 30px;
     }
 
-    footer p {
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: var(--accent-blue);
-      text-decoration: none;
-    }
-
-    /* --- CARRÉ PERSONNEL ANIMÉ (EN BAS) --- */
     .hero-expert-animation {
       max-width: 680px;
       margin: 0 auto;
@@ -788,16 +628,6 @@
       flex-direction: column;
       align-items: center;
       gap: 10px;
-    }
-
-    .hero-expert-animation::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--royal-purple), transparent);
     }
 
     .expert-badge-top {
@@ -829,63 +659,8 @@
       -webkit-text-fill-color: transparent;
     }
 
-    .expert-title {
-      font-size: 0.98rem;
-      font-weight: 600;
-      color: var(--text-main);
-      letter-spacing: 0.3px;
-      text-align: center;
-    }
-
-    .expert-desc {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      max-width: 520px;
-      text-align: center;
-      line-height: 1.5;
-    }
-
-    /* --- RESPONSIVE MOBILE AMÉLIORÉ --- */
     @media screen and (max-width: 950px) {
-      header {
-        padding: 12px 15px;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 10px;
-      }
-
-      .logo {
-        font-size: 1.2rem;
-      }
-
-      .logo-icon {
-        width: 32px;
-        height: 32px;
-        font-size: 1rem;
-      }
-
-      .nav-menu {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        gap: 15px;
-        overflow-x: auto;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-
-      .nav-menu::-webkit-scrollbar {
-        display: none;
-      }
-
-      .nav-menu a {
-        font-size: 0.85rem;
-      }
-
-      .offers-grid,
-      .advisor-grid,
-      .examples-grid {
+      .offers-grid, .advisor-grid, .examples-grid {
         grid-template-columns: 1fr !important;
       }
       .stats-grid {
@@ -894,28 +669,11 @@
       .hero h1 {
         font-size: 2.3rem;
       }
-      .contact-box {
-        padding: 30px 20px;
-      }
-    }
-
-    @media screen and (max-width: 576px) {
-      .stats-grid {
-        grid-template-columns: 1fr !important;
-      }
-      .contact-buttons-container {
-        flex-direction: column;
-      }
-      .contact-btn {
-        width: 100%;
-        justify-content: center;
-      }
     }
   </style>
 </head>
 <body>
 
-  <!-- ==================== NAVIGATION ==================== -->
   <header>
     <div class="logo-container">
       <div class="logo-icon">N</div>
@@ -927,19 +685,15 @@
     </ul>
   </header>
 
-  <!-- ==================== HERO SECTION (AVEC EFFET LUMINEUX EN ARRIÈRE-PLAN) ==================== -->
   <section id="accueil" class="hero">
-    <!-- Effets d'arrière-plan animés (grille technologique + orbes lumineux + faisceau) -->
     <div class="hero-bg-effects">
       <div class="hero-orb-1"></div>
       <div class="hero-orb-2"></div>
     </div>
-
     <div class="hero-content">
       <div class="hero-badge">✨ Automatisation Intelligente</div>
       <h1>Automatisez votre <span>Business</span></h1>
       <p>Connectez vos outils et faites croître votre activité en toute sérénité.</p>
-      
       <div class="hero-buttons">
         <a href="#offres" class="btn-primary">Découvrir nos offres</a>
         <a href="#contact" class="btn-secondary">Prendre contact</a>
@@ -947,300 +701,66 @@
     </div>
   </section>
 
-  <!-- ==================== SECTION STATISTIQUES ==================== -->
   <section class="stats-section">
     <div class="stats-grid">
-      <div class="stat-item">
-        <h3>24/7</h3>
-        <p>Disponibilité des assistants</p>
-      </div>
-      <div class="stat-item">
-        <h3>100%</h3>
-        <p>Automatisé sans saisie manuelle</p>
-      </div>
-      <div class="stat-item">
-        <h3>0 Erreur</h3>
-        <p>Dans la gestion de vos données</p>
-      </div>
-      <div class="stat-item">
-        <h3>Sur-mesure</h3>
-        <p>Adapté à votre secteur exact</p>
-      </div>
+      <div class="stat-item"><h3>24/7</h3><p>Disponibilité des assistants</p></div>
+      <div class="stat-item"><h3>100%</h3><p>Automatisé sans saisie manuelle</p></div>
+      <div class="stat-item"><h3>0 Erreur</h3><p>Dans la gestion de vos données</p></div>
+      <div class="stat-item"><h3>Sur-mesure</h3><p>Adapté à votre secteur exact</p></div>
     </div>
   </section>
 
-  <!-- ==================== SECTION OFFRES ==================== -->
   <section id="offres" class="offers-section">
     <div class="section-header">
       <h2>Nos Offres <span>Professionnelles</span></h2>
       <p>Des solutions claires et sur-mesure pour transformer la gestion de votre entreprise.</p>
     </div>
-
     <div class="offers-grid">
-
-      <!-- OFFRE 1 -->
       <div class="offer-card">
         <div class="card-inner">
           <div class="price-tag">À partir de 18 000 DA / mois</div>
           <h3 class="offer-title">Chatbot Multi-Canal + Base de Données</h3>
           <p class="offer-desc">Gère les réponses automatiques, prend les commandes, gère les réservations et discute avec vos clients sur Instagram, WhatsApp, Messenger et votre site web.</p>
-          
           <ul class="advantages-list">
-            <li>Connexion fluide à une base de données sécurisée (créée de zéro pour vous si besoin).</li>
-            <li>Envoi d'e-mails automatiques de confirmation ou de suivi à chaque interaction clé.</li>
-            <li>Formulaires intelligents intégrés pour récupérer proprement les informations prospects.</li>
-            <li>Alerte automatique immédiate dès qu'un client montre un intérêt sérieux.</li>
+            <li>Connexion fluide à une base de données sécurisée.</li>
+            <li>Envoi d'e-mails automatiques de confirmation ou de suivi.</li>
+            <li>Formulaires intelligents intégrés pour récupérer les prospects.</li>
           </ul>
-
-          <div class="card-footer-info">
-            Tarif ajusté selon les fonctionnalités demandées.
-          </div>
         </div>
       </div>
-
-      <!-- OFFRE 2 (POPULAIRE) -->
       <div class="offer-card featured">
         <div class="card-inner">
           <div class="card-badge-top">Populaire</div>
           <div class="price-tag">À partir de 20 000 DA / mois</div>
           <h3 class="offer-title">Chatbot + Dashboard + Base de Données</h3>
-          <p class="offer-desc">Un chatbot connecté alimente automatiquement une base de données, qui pilote elle-même un tableau de bord sur-mesure affichant vos statistiques en temps réel.</p>
-          
+          <p class="offer-desc">Un chatbot connecté alimente une base de données, qui pilote un tableau de bord sur-mesure affichant vos statistiques en temps réel.</p>
           <ul class="advantages-list">
             <li><strong>Gain de temps :</strong> plus besoin de compiler les chiffres manuellement.</li>
-            <li>Décisions plus rapides grâce à une vue claire et à jour de vos ventes et stocks.</li>
-            <li>Moins d'erreurs de suivi et accessibilité totale de vos données à tout moment.</li>
-            <li>E-mails automatiques et formulaires synchronisés sans aucune saisie manuelle.</li>
+            <li>Décisions plus rapides grâce à une vue claire et à jour.</li>
           </ul>
-
-          <div class="card-footer-info">
-            Tarif ajusté selon les fonctionnalités demandées.
-          </div>
-        </div>
-      </div>
-
-      <!-- OFFRE 3 -->
-      <div class="offer-card">
-        <div class="card-inner">
-          <div class="price-tag">À partir de 30 000 DA / mois</div>
-          <h3 class="offer-title">Pack Intégral : Chatbot + Dashboard + BD + Assistant IA</h3>
-          <p class="offer-desc">Inclut tout le pack chatbot, dashboard et base de données, avec en plus un assistant IA intégré qui analyse vos données et répond à vos questions en langage simple.</p>
-          
-          <ul class="advantages-list">
-            <li>Analyse intelligente de vos performances commerciales et de vos flux de données.</li>
-            <li>Alertes préventives automatiques sur les points critiques (baisse de stock, chute de ventes).</li>
-            <li>Formulaires avancés et déclenchement d'e-mails automatiques intelligents.</li>
-            <li>Un véritable copilote stratégique pour votre entreprise.</li>
-          </ul>
-
-          <div class="card-footer-info">
-            Tarif ajusté selon les fonctionnalités demandées.
-          </div>
-        </div>
-      </div>
-
-      <!-- OFFRE 4 -->
-      <div class="offer-card">
-        <div class="card-inner">
-          <div class="price-tag">À partir de 15 000 DA</div>
-          <h3 class="offer-title">Interface Interactive Personnalisée</h3>
-          <p class="offer-desc">Une application web interactive sur-mesure aux couleurs de votre marque, connectée directement à vos formulaires, bases de données et e-mails automatiques.</p>
-          
-          <ul class="advantages-list">
-            <li>Navigation interactive pour vos clients (menu, catalogue, prise de rendez-vous).</li>
-            <li>Accessible facilement via un QR code (sur table ou en vitrine) ou un lien partagé.</li>
-            <li>Chaque action se reflète instantanément dans vos statistiques et votre dashboard.</li>
-            <li>Design professionnel et ergonomique adapté à votre image de marque.</li>
-          </ul>
-
-          <div class="card-footer-info">
-            Tarif selon les fonctionnalités demandées.
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==================== SECTION CONSEILLER POUR ENTREPRISE ==================== -->
-  <section id="conseiller" class="advisor-section">
-    <div class="section-header">
-      <h2>Conseiller pour <span>Entreprise</span></h2>
-      <p>Des modules d'automatisation ultra-spécifiques pour booster votre productivité au quotidien.</p>
-    </div>
-
-    <div class="advisor-grid">
-
-      <!-- OFFRE A : RÉPONSE DE MAIL EN BROUILLON -->
-      <div class="advisor-card">
-        <div class="card-inner">
-          <div class="price-tag">Module Intelligence Mail</div>
-          <h3 class="offer-title">Réponse e-mail automatique en mode brouillon</h3>
-          <p class="offer-desc">Ne perdez plus de temps à rédiger les mêmes e-mails. L'intelligence artificielle analyse le message reçu de votre client, rédige la réponse idéale et l'enregistre directement en tant que brouillon dans votre messagerie.</p>
-          
-          <ul class="advantages-list">
-            <li><strong>Zéro risque :</strong> Rien n'est envoyé automatiquement sans votre accord.</li>
-            <li>Il vous suffit d'ouvrir votre boîte mail, de relire le brouillon préparé et de cliquer sur "Envoyer".</li>
-            <li>Gain de temps considérable sur le traitement quotidien de votre SAV ou de vos prospects.</li>
-          </ul>
-
-          <div class="card-footer-info">
-            Idéal pour un contrôle total avec un effort minimal.
-          </div>
-        </div>
-      </div>
-
-      <!-- OFFRE B : FILTRAGE DE BASE DE DONNÉES -->
-      <div class="advisor-card">
-        <div class="card-inner">
-          <div class="price-tag">Module Data Clean</div>
-          <h3 class="offer-title">Filtrage et nettoyage intelligent de base de données</h3>
-          <p class="offer-desc">Fini les données en double, incomplètes ou erronées. Notre système analyse en continu votre base de données pour trier, nettoyer, dédupliquer et classer chaque information client selon vos critères précis.</p>
-          
-          <ul class="advantages-list">
-            <li><strong>Organisation parfaite :</strong> vos fichiers clients sont toujours propres et à jour.</li>
-            <li>Suppression automatique des spams et des doublons inutiles.</li>
-            <li>Classement intelligent par type de prospect ou historique d'achat.</li>
-          </ul>
-
-          <div class="card-footer-info">
-            La garantie d'une base de données saine et exploitable.
-          </div>
-        </div>
-      </div>
-
-      <!-- OFFRE C : FORMULAIRE DE VENTE / INSCRIPTION -->
-      <div class="advisor-card">
-        <div class="card-inner">
-          <div class="price-tag">Module Conversion</div>
-          <h3 class="offer-title">Formulaire sur-mesure pour ventes ou inscriptions</h3>
-          <p class="offer-desc">Propulsez vos conversions grâce à des formulaires dynamiques et intelligents. Que ce soit pour vendre un produit ou enregistrer des inscriptions, chaque saisie déclenche instantanément des actions en arrière-plan.</p>
-          
-          <ul class="advantages-list">
-            <li><strong>Connexion immédiate :</strong> les données vont directement dans votre base de données.</li>
-            <li>Envoi d'un e-mail de confirmation automatique personnalisé au client dès validation.</li>
-            <li>Notifications instantanées pour votre équipe pour ne rater aucune opportunité.</li>
-          </ul>
-
-          <div class="card-footer-info">
-            Transformez plus facilement vos visiteurs en clients.
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- BLOC SUR-MESURE PROPOSÉ PAR LE CONSEILLER -->
-    <div style="margin-top: 50px;">
-      <div class="offer-card" style="max-width: 100%;">
-        <div class="card-inner" style="text-align: center; padding: 50px;">
-          <div class="price-tag" style="margin-bottom: 15px;">Offre Sur-Mesure</div>
-          <h3 class="offer-title" style="font-size: 2rem; margin-bottom: 20px;">Vous avez un problème unique dans votre business ?</h3>
-          <p class="offer-desc" style="max-width: 800px; margin: 0 auto 30px auto; font-size: 1.1rem;">
-            Proposez-nous votre problématique ou votre frein actuel dans votre entreprise. Nos experts analyseront votre processus interne et concevront l'automatisation exacte adaptée à vos besoins spécifiques pour débloquer votre croissance.
-          </p>
-          <a href="#contact" class="btn-primary" style="display: inline-block; width: auto; padding: 15px 40px;">Soumettre mon problème métier</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== SECTION EXEMPLES PAR MÉTIER ==================== -->
-  <section id="exemples" class="examples-section">
-    <div class="section-header">
-      <h2>Exemples d'Application par <span>Métier</span></h2>
-      <p>Découvrez comment nos solutions automatisées s'adaptent concrètement à votre secteur d'activité.</p>
-    </div>
-
-    <div class="examples-grid">
-
-      <!-- AGENCE RESTAU -->
-      <div class="example-card">
-        <div class="example-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Restaurant et automatisation">
-        </div>
-        <div class="example-content">
-          <h3>🍽️ Agence / Restaurant</h3>
-          <p>Mise en place d'un menu digital interactif par QR code sur table, couplé à un chatbot de commande directe et de réservation en ligne.</p>
-          <div class="example-benefit">
-            <strong>Bénéfice :</strong> Fini les appels manqués aux heures de pointe. Les commandes et réservations alimentent directement votre base de données et déclenchent des e-mails automatiques de confirmation.
-          </div>
-        </div>
-      </div>
-
-      <!-- AGENCE DE VOYAGE -->
-      <div class="example-card">
-        <div class="example-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600&q=80" alt="Agence de voyage et automatisation">
-        </div>
-        <div class="example-content">
-          <h3>✈️ Agence de Voyage</h3>
-          <p>Intégration d'un formulaire de demande de séjour sophistiqué sur votre site web et vos réseaux sociaux, relié à un système de devis et d'e-mails automatiques.</p>
-          <div class="example-benefit">
-            <strong>Bénéfice :</strong> Le client remplit ses critères de voyage, le chatbot qualifie sa demande, enregistre ses coordonnées dans la base de données et lui envoie instantanément une brochure ou un récapitulatif par e-mail.
-          </div>
-        </div>
-      </div>
-
-      <!-- SALON DE COIFFURE / AGENDA -->
-      <div class="example-card">
-        <div class="example-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=600&q=80" alt="Salon de coiffure et agenda">
-        </div>
-        <div class="example-content">
-          <h3>📅 Salon de Coiffure & Services</h3>
-          <p>Système de prise de rendez-vous en autonomie 24h/24, synchronisé directement avec votre calendrier et votre base de données clients.</p>
-          <div class="example-benefit">
-            <strong>Bénéfice :</strong> Vos clients réservent leur créneau en autonomie 24h/24. Le système met à jour votre agenda, enregistre le client dans la base de données et envoie un e-mail de rappel la veille pour réduire les rendez-vous manqués.
-          </div>
-        </div>
-      </div>
-
-      <!-- MAGASIN / COMMERCE -->
-      <div class="example-card">
-        <div class="example-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80" alt="Magasin commerce de détail">
-        </div>
-        <div class="example-content">
-          <h3>🛍️ Magasin & E-commerce</h3>
-          <p>Catalogue interactif avec gestion des stocks en direct et tableau de bord de pilotage des ventes.</p>
-          <div class="example-benefit">
-            <strong>Bénéfice :</strong> Chaque achat ou demande de devis met à jour votre stock en temps réel dans votre base de données, vous évitant les ruptures et vous offrant un suivi chiffré précis sans efforts de compilation.
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==================== SECTION CONTACT DIRECT ==================== -->
   <section id="contact" class="contact-section">
     <div class="contact-box">
       <h2>Prêt à automatiser votre <span>Business</span> ?</h2>
-      <p>Vous êtes intéressé par nos solutions ou vous souhaitez nous contacter directement pour discuter de votre projet ? Échangez avec nous dès maintenant par WhatsApp ou par e-mail :</p>
-      
+      <p>Échangez avec nous dès maintenant par WhatsApp ou par e-mail :</p>
       <div class="contact-buttons-container">
-        <a href="https://wa.me/213558612936?text=Bonjour,%20je%20suis%20intéressé%20par%20les%20solutions%20d'automatisation%20Nexflow." target="_blank" class="contact-btn whatsapp-btn">
-          💬 Discuter sur WhatsApp
-        </a>
-        <a href="mailto:ourinassim1@gmail.com?subject=Demande%20d'information%20-%20Nexflow" class="contact-btn email-btn">
-          ✉️ Envoyer un E-mail
-        </a>
+        <a href="https://wa.me/213558612936?text=Bonjour,%20je%20suis%20intéressé%20par%20les%20solutions%20d'automatisation%20Nexflow." target="_blank" class="contact-btn whatsapp-btn">💬 Discuter sur WhatsApp</a>
+        <a href="mailto:ourinassim1@gmail.com?subject=Demande%20d'information%20-%20Nexflow" class="contact-btn email-btn">✉️ Envoyer un E-mail</a>
       </div>
     </div>
   </section>
 
-  <!-- ==================== FOOTER (AVEC LE CARRÉ PERSONNEL EN BAS) ==================== -->
   <footer>
-    <!-- CARRÉ PERSONNEL ANIMÉ (RESTÉ EN BAS) -->
     <div class="hero-expert-animation">
       <div class="expert-badge-top">⚡ Conception & Innovation</div>
       <div class="expert-name"><span>Nassim</span></div>
-      <div class="expert-title">Ingénieur en Intelligence Artificielle (Automatisation IA) & en Informatique</div>
-      <div class="expert-desc">Architecte de solutions logicielles avancées, IA générative et flux intelligents pour propulser les entreprises.</div>
+      <div class="expert-title">Ingénieur en Intelligence Artificielle & en Informatique</div>
     </div>
-
-    <p>&copy; 2026 Nexflow. Tous droits réservés. | Solutions professionnelles d'automatisation et de gestion de données.</p>
+    <p>&copy; 2026 Nexflow. Tous droits réservés.</p>
   </footer>
 
 </body>
