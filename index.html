@@ -16,19 +16,19 @@
       pointer-events: none !important;
     }
 
-    /* --- DESIGN TECH, SOBRE ET BLEU/VIOLET (PLUS DE JAUNE) --- */
+    /* --- DESIGN TECH, SOBRE ET ROYAL --- */
     :root {
       --bg-color: #05070d;
       --bg-secondary: #0b0f1a;
       --card-bg: #0f1423;
       --card-hover: #151c30;
-      --accent-blue: #3b82f6;
-      --accent-cyan: #06b6d4;
+      --gold: #d4af37;
+      --gold-light: #f3e5ab;
       --royal-purple: #7c3aed;
       --royal-blue: #2563eb;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
-      --border-color: rgba(59, 130, 246, 0.25);
+      --border-color: rgba(212, 175, 55, 0.2);
     }
 
     * {
@@ -61,16 +61,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes floatTech {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-12px) rotate(2deg); }
-    }
-
-    @keyframes pulseGlow {
-      0%, 100% { opacity: 0.4; transform: scale(1); }
-      50% { opacity: 0.8; transform: scale(1.05); }
-    }
-
     .animate-fade {
       animation: fadeIn 0.8s ease forwards;
     }
@@ -98,7 +88,7 @@
     .logo-icon {
       width: 40px;
       height: 40px;
-      background: linear-gradient(135deg, var(--accent-blue), var(--royal-purple));
+      background: linear-gradient(135deg, var(--gold), var(--royal-purple));
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -106,7 +96,7 @@
       font-weight: bold;
       color: #fff;
       font-size: 1.2rem;
-      box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
     }
 
     .logo {
@@ -118,7 +108,7 @@
     }
 
     .logo span {
-      color: var(--accent-blue);
+      color: var(--gold);
     }
 
     .nav-menu {
@@ -137,12 +127,12 @@
     }
 
     .nav-menu a:hover {
-      color: var(--accent-blue);
+      color: var(--gold);
     }
 
     .nav-cta {
-      background: linear-gradient(135deg, var(--accent-blue), var(--royal-blue));
-      color: #fff !important;
+      background: linear-gradient(135deg, var(--gold), #b38f27);
+      color: #05070d !important;
       padding: 10px 22px;
       border-radius: 6px;
       font-weight: bold !important;
@@ -151,13 +141,13 @@
 
     .nav-cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 20px rgba(59, 130, 246, 0.4);
+      box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
     }
 
     /* --- HERO SECTION --- */
     .hero {
       position: relative;
-      padding: 90px 20px 80px 20px;
+      padding: 100px 20px 80px 20px;
       text-align: center;
       background: radial-gradient(circle at center, #111827 0%, var(--bg-color) 70%);
       overflow: hidden;
@@ -168,7 +158,7 @@
       position: absolute;
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
       top: -200px;
       left: 50%;
       transform: translateX(-50%);
@@ -187,38 +177,38 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(59, 130, 246, 0.1);
+      background: rgba(212, 175, 55, 0.1);
       border: 1px solid var(--border-color);
-      color: var(--accent-blue);
+      color: var(--gold);
       padding: 8px 18px;
       border-radius: 30px;
       font-size: 0.85rem;
       font-weight: 600;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       text-transform: uppercase;
       letter-spacing: 1.5px;
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-weight: 800;
       line-height: 1.2;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       color: #fff;
     }
 
     .hero h1 span {
-      background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan), #ffffff);
+      background: linear-gradient(135deg, var(--gold), #fff, var(--gold-light));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .hero p {
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 35px;
-      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 750px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -231,7 +221,7 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--royal-blue), var(--accent-blue));
+      background: linear-gradient(135deg, var(--royal-blue), #1d4ed8);
       color: white;
       padding: 15px 35px;
       border-radius: 8px;
@@ -259,81 +249,77 @@
 
     .btn-secondary:hover {
       background: rgba(255, 255, 255, 0.05);
-      border-color: var(--accent-blue);
-      color: var(--accent-blue);
+      border-color: var(--gold);
+      color: var(--gold);
     }
 
-    /* --- ANIMATION TECH FLOTTANTE (REMPLACEMENT DU MOCKUP LOURD) --- */
-    .hero-tech-animation {
-      max-width: 700px;
+    /* MOCKUP HERO */
+    .hero-mockup {
+      max-width: 1000px;
       margin: 0 auto;
-      height: 180px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      position: relative;
+    }
+
+    .mockup-header {
+      background: #080b14;
+      padding: 15px 20px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      position: relative;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .tech-orbit-container {
+    .mockup-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+
+    .mockup-body {
+      padding: 0;
       position: relative;
+      height: 420px;
+      overflow: hidden;
+    }
+
+    .mockup-image {
       width: 100%;
       height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      animation: floatTech 5s ease-in-out infinite;
+      object-fit: cover;
+      filter: brightness(0.85) contrast(1.1);
     }
 
-    .tech-core-node {
-      background: linear-gradient(135deg, var(--card-bg), var(--card-hover));
-      border: 1px solid var(--accent-blue);
-      padding: 18px 30px;
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.25);
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      z-index: 2;
-    }
-
-    .tech-core-icon {
-      font-size: 1.8rem;
-    }
-
-    .tech-core-text h4 {
-      color: #fff;
-      font-size: 1rem;
-      margin-bottom: 2px;
-    }
-
-    .tech-core-text p {
-      color: var(--accent-cyan);
-      font-size: 0.75rem;
-      margin: 0;
-    }
-
-    .floating-badge-1, .floating-badge-2 {
+    .mockup-overlay-badge {
       position: absolute;
-      background: rgba(15, 20, 35, 0.9);
-      border: 1px solid rgba(59, 130, 246, 0.4);
-      padding: 8px 15px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      color: #e2e8f0;
-      backdrop-filter: blur(5px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      bottom: 25px;
+      left: 25px;
+      background: rgba(5, 7, 13, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--gold);
+      padding: 15px 25px;
+      border-radius: 10px;
+      text-align: left;
     }
 
-    .floating-badge-1 {
-      top: 10px;
-      left: 15%;
-      animation: floatTech 4s ease-in-out infinite 0.5s;
+    .mockup-overlay-badge h4 {
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-bottom: 4px;
     }
 
-    .floating-badge-2 {
-      bottom: 10px;
-      right: 15%;
-      animation: floatTech 4s ease-in-out infinite 1s;
+    .mockup-overlay-badge p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin: 0;
     }
 
     /* --- SECTION STATISTIQUES --- */
@@ -356,7 +342,7 @@
     .stat-item h3 {
       font-size: 2.5rem;
       font-weight: 800;
-      color: var(--accent-blue);
+      color: var(--gold);
       margin-bottom: 8px;
     }
 
@@ -385,7 +371,7 @@
     }
 
     .section-header h2 span {
-      color: var(--accent-blue);
+      color: var(--gold);
     }
 
     .section-header p {
@@ -401,7 +387,7 @@
       gap: 40px;
     }
 
-    /* BORDURE ANIMÉE BLEUE / TECH */
+    /* BORDURE ANIMÉE ROYALE */
     .offer-card {
       position: relative;
       border-radius: 18px;
@@ -424,7 +410,7 @@
       position: absolute;
       width: 180%;
       height: 180%;
-      background: conic-gradient(from 0deg, transparent 70%, var(--accent-blue) 85%, var(--royal-purple) 100%);
+      background: conic-gradient(from 0deg, transparent 70%, var(--gold) 85%, var(--royal-purple) 100%);
       animation: rotateBorder 4s linear infinite;
       z-index: -2;
       top: -40%;
@@ -447,7 +433,7 @@
     }
 
     .offer-card.featured::before {
-      background: conic-gradient(from 0deg, transparent 50%, var(--accent-cyan) 75%, var(--accent-blue) 100%);
+      background: conic-gradient(from 0deg, transparent 50%, #ffd700 75%, #ff4500 100%);
       animation-duration: 3s;
     }
 
@@ -467,8 +453,8 @@
       position: absolute;
       top: 25px;
       right: 25px;
-      background: linear-gradient(135deg, var(--accent-blue), var(--royal-blue));
-      color: #fff;
+      background: linear-gradient(135deg, var(--gold), #b38f27);
+      color: #05070d;
       font-size: 0.75rem;
       font-weight: 800;
       padding: 6px 14px;
@@ -479,7 +465,7 @@
 
     .price-tag {
       font-size: 0.85rem;
-      color: var(--accent-cyan);
+      color: #60a5fa;
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 1.5px;
@@ -519,7 +505,7 @@
 
     .advantages-list li::before {
       content: "✓";
-      color: var(--accent-blue);
+      color: var(--gold);
       font-weight: bold;
       font-size: 1.1rem;
       flex-shrink: 0;
@@ -533,7 +519,7 @@
     }
 
     .card-footer-info strong {
-      color: var(--accent-blue);
+      color: var(--gold);
     }
 
     /* --- SECTION CONSEILLER POUR ENTREPRISE --- */
@@ -572,7 +558,7 @@
       position: absolute;
       width: 180%;
       height: 180%;
-      background: conic-gradient(from 0deg, transparent 70%, var(--accent-blue) 85%, var(--royal-purple) 100%);
+      background: conic-gradient(from 0deg, transparent 70%, var(--gold) 85%, var(--royal-purple) 100%);
       animation: rotateBorder 4s linear infinite;
       z-index: -2;
       top: -40%;
@@ -621,7 +607,7 @@
 
     .example-card:hover {
       transform: translateY(-5px);
-      border-color: var(--accent-blue);
+      border-color: var(--gold);
     }
 
     .example-img-wrapper {
@@ -667,8 +653,8 @@
     }
 
     .example-benefit {
-      background: rgba(59, 130, 246, 0.05);
-      border-left: 3px solid var(--accent-blue);
+      background: rgba(212, 175, 55, 0.05);
+      border-left: 3px solid var(--gold);
       padding: 12px 15px;
       border-radius: 0 8px 8px 0;
       font-size: 0.85rem;
@@ -676,7 +662,7 @@
     }
 
     .example-benefit strong {
-      color: var(--accent-cyan);
+      color: var(--gold);
     }
 
     /* --- SECTION CONTACT DIRECT --- */
@@ -703,7 +689,7 @@
     }
 
     .contact-box h2 span {
-      color: var(--accent-blue);
+      color: var(--gold);
     }
 
     .contact-box > p {
@@ -745,15 +731,15 @@
     }
 
     .email-btn {
-      background: linear-gradient(135deg, var(--accent-blue), var(--royal-blue));
-      color: #fff;
-      box-shadow: 0 5px 20px rgba(59, 130, 246, 0.3);
+      background: linear-gradient(135deg, var(--gold), #b38f27);
+      color: #05070d;
+      box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
     }
 
     .email-btn:hover {
       transform: translateY(-3px);
       opacity: 0.9;
-      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
     }
 
     /* --- FOOTER --- */
@@ -770,7 +756,7 @@
     }
 
     footer a {
-      color: var(--accent-blue);
+      color: var(--gold);
       text-decoration: none;
     }
 
@@ -836,27 +822,29 @@
   <!-- ==================== HERO SECTION ==================== -->
   <section id="accueil" class="hero">
     <div class="hero-content">
-      <div class="hero-badge">✨ Automatisation Intelligente</div>
-      <h1>Automatisez votre <span>Business</span></h1>
-      <p>Connectez vos outils et faites croître votre activité en toute sérénité.</p>
+      <div class="hero-badge">✨ Centralisation & Flux Intelligents</div>
+      <h1>Propulsez votre entreprise grâce à l'<span>Automatisation Intelligente</span></h1>
+      <p>Fini la gestion manuelle et les tâches répétitives. Nous connectons vos outils, centralisons vos données et fluidifions la communication avec vos clients pour faire croître votre activité en toute sérénité.</p>
       
       <div class="hero-buttons">
         <a href="#offres" class="btn-primary">Découvrir nos offres</a>
         <a href="#contact" class="btn-secondary">Prendre contact</a>
       </div>
 
-      <!-- ANIMATION TECH FLOTTANTE (LÉGÈRE ET MOBILE-FRIENDLY) -->
-      <div class="hero-tech-animation">
-        <div class="tech-orbit-container">
-          <div class="floating-badge-1">⚡ Flux en direct</div>
-          <div class="tech-core-node">
-            <div class="tech-core-icon">⚙️</div>
-            <div class="tech-core-text">
-              <h4>Nexflow Engine</h4>
-              <p>Synchronisation active 24/7</p>
-            </div>
+      <!-- MOCKUP -->
+      <div class="hero-mockup">
+        <div class="mockup-header">
+          <div class="mockup-dot dot-red"></div>
+          <div class="mockup-dot dot-yellow"></div>
+          <div class="mockup-dot dot-green"></div>
+          <span style="color: #64748b; font-size: 0.8rem; margin-left: 10px;">Nexflow - Automatisation des flux & Tableaux de bord</span>
+        </div>
+        <div class="mockup-body">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Automatisation et Dashboard" class="mockup-image">
+          <div class="mockup-overlay-badge">
+            <h4>⚡ Performance & Fluidité</h4>
+            <p>Formulaires, e-mails automatiques et bases de données synchronisés.</p>
           </div>
-          <div class="floating-badge-2">🤖 IA & Chatbots</div>
         </div>
       </div>
     </div>
