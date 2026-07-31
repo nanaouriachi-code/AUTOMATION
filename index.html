@@ -339,12 +339,6 @@
       text-align: center;
     }
 
-    @media (max-width: 768px) {
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
     .stat-item h3 {
       font-size: 2.5rem;
       font-weight: 800;
@@ -391,12 +385,6 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 40px;
-    }
-
-    @media (max-width: 950px) {
-      .offers-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     /* BORDURE ANIMÉE ROYALE */
@@ -548,12 +536,6 @@
       margin-top: 50px;
     }
 
-    @media (max-width: 950px) {
-      .advisor-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
     .advisor-card {
       position: relative;
       border-radius: 18px;
@@ -610,12 +592,6 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 40px;
       margin-top: 50px;
-    }
-
-    @media (max-width: 900px) {
-      .examples-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     .example-card {
@@ -782,6 +758,47 @@
     footer a {
       color: var(--gold);
       text-decoration: none;
+    }
+
+    /* --- RESPONSIVE MOBILE AMÉLIORÉ --- */
+    @media screen and (max-width: 950px) {
+      header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+      .offers-grid,
+      .advisor-grid,
+      .examples-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      .contact-box {
+        padding: 30px 20px;
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      .stats-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .contact-buttons-container {
+        flex-direction: column;
+      }
+      .contact-btn {
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
@@ -1068,14 +1085,14 @@
         </div>
       </div>
 
-      <!-- SALON DE COIFFURE -->
+      <!-- SALON DE COIFFURE / AGENDA -->
       <div class="example-card">
         <div class="example-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=600&q=80" alt="Salon de coiffure et automatisation">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=600&q=80" alt="Salon de coiffure et agenda">
         </div>
         <div class="example-content">
-          <h3>✂️ Salon de Coiffure</h3>
-          <p>Mise en place d'une interface de prise de rendez-vous en ligne interactive et d'un rappel automatique par e-mail ou message.</p>
+          <h3>📅 Salon de Coiffure & Services</h3>
+          <p>Système de prise de rendez-vous en autonomie 24h/24, synchronisé directement avec votre calendrier et votre base de données clients.</p>
           <div class="example-benefit">
             <strong>Bénéfice :</strong> Vos clients réservent leur créneau en autonomie 24h/24. Le système met à jour votre agenda, enregistre le client dans la base de données et envoie un e-mail de rappel la veille pour réduire les rendez-vous manqués.
           </div>
