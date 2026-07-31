@@ -61,14 +61,24 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); border-color: rgba(59, 130, 246, 0.4); }
-      50% { box-shadow: 0 0 30px rgba(6, 182, 212, 0.6); border-color: var(--accent-cyan); }
-    }
-
-    @keyframes textGlow {
-      0%, 100% { text-shadow: 0 0 10px rgba(59, 130, 246, 0.4); }
-      50% { text-shadow: 0 0 20px rgba(6, 182, 212, 0.8), 0 0 30px rgba(124, 58, 237, 0.5); }
+    /* Animation "Il vient et il repart" (Slide in/out fluide avec effet de zoom et fondu) */
+    @keyframes slideInOut {
+      0% {
+        opacity: 0;
+        transform: translateX(-100px) scale(0.9);
+      }
+      15% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+      85% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(100px) scale(0.9);
+      }
     }
 
     .animate-fade {
@@ -263,9 +273,9 @@
       color: var(--accent-blue);
     }
 
-    /* --- NOUVELLE ANIMATION : NASSIM EXPERTISE PRO --- */
+    /* --- ANIMATION "VIENT ET REPART" (SLIDE IN / OUT) --- */
     .hero-expert-animation {
-      max-width: 650px;
+      max-width: 680px;
       margin: 0 auto;
       padding: 25px 30px;
       background: linear-gradient(135deg, rgba(11, 15, 26, 0.95), rgba(15, 20, 35, 0.95));
@@ -274,14 +284,14 @@
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
       position: relative;
       overflow: hidden;
-      animation: pulseGlow 4s ease-in-out infinite;
+      /* Animation infinie : il vient, reste visible, puis repart */
+      animation: slideInOut 5s ease-in-out infinite;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
-    /* Effet de ligne lumineuse en haut de l'encadré */
     .hero-expert-animation::before {
       content: "";
       position: absolute;
@@ -313,7 +323,6 @@
       font-weight: 800;
       color: #fff;
       letter-spacing: 1px;
-      animation: textGlow 3s ease-in-out infinite;
     }
 
     .expert-name span {
@@ -323,16 +332,17 @@
     }
 
     .expert-title {
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 600;
       color: var(--text-main);
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
+      text-align: center;
     }
 
     .expert-desc {
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
-      max-width: 500px;
+      max-width: 520px;
       text-align: center;
       line-height: 1.5;
     }
@@ -846,12 +856,12 @@
         <a href="#contact" class="btn-secondary">Prendre contact</a>
       </div>
 
-      <!-- ANIMATION PROFESSIONNELLE : NASSIM INGÉNIEUR EN AUTOMATISATION & DÉVELOPPEMENT -->
+      <!-- ANIMATION "VIENT ET REPART" : NASSIM INGÉNIEUR EN IA & INFORMATIQUE -->
       <div class="hero-expert-animation">
-        <div class="expert-badge-top">⚡ Expertise Technique Sur-Mesure</div>
+        <div class="expert-badge-top">⚡ Conception & Innovation</div>
         <div class="expert-name"><span>Nassim</span></div>
-        <div class="expert-title">Ingénieur en Automatisation & Développement</div>
-        <div class="expert-desc">Conception de flux intelligents, chatbots multi-canaux et interfaces web professionnelles pour propulser votre entreprise.</div>
+        <div class="expert-title">Ingénieur en Intelligence Artificielle (Automatisation IA) & en Informatique</div>
+        <div class="expert-desc">Architecte de solutions logicielles avancées, IA générative et flux intelligents pour propulser les entreprises.</div>
       </div>
     </div>
   </section>
